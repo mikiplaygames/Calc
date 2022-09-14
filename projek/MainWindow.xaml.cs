@@ -21,55 +21,55 @@ namespace projek
 
         private void button0_Click(object sender, RoutedEventArgs e)
         {
-            count(0);
+            Count(0);
         }
 
         private void button1_Click(object sender, RoutedEventArgs e)
         {
-            count(1);
+            Count(1);
         }
         
         private void button2_Click(object sender, RoutedEventArgs e)
         {
-            count(2);
+            Count(2);
         }
         
         private void button3_Click(object sender, RoutedEventArgs e)
         {
-            count(3);
+            Count(3);
         }
         
         private void button4_Click(object sender, RoutedEventArgs e)
         {
-            count(4);
+            Count(4);
         }
         
         private void button5_Click(object sender, RoutedEventArgs e)
         {
-            count(5);
+            Count(5);
         }
 
         private void button6_Click(object sender, RoutedEventArgs e)
         {
-            count(6);
+            Count(6);
         }
 
         private void button7_Click(object sender, RoutedEventArgs e)
         {
-            count(7);
+            Count(7);
         }
         
         private void button8_Click(object sender, RoutedEventArgs e)
         {
-            count(8);
+            Count(8);
         }
         
         private void button9_Click(object sender, RoutedEventArgs e)
         {
-            count(9);
+            Count(9);
         }
 
-        private void count(int number)
+        private void Count(int number)
         {
             if (!setB)
             {
@@ -84,40 +84,6 @@ namespace projek
                 y = int.Parse(meta);
                 isYSet = true;
                 skladiki.Text = "x = " + x.ToString() + "\ny = " + y.ToString();
-            }
-        }
-
-        private void delete()
-        {
-            if (!setB)
-            {
-                if (x.ToString().Length > 1)
-                {
-                    string meta = x.ToString().Remove(x.ToString().Length - 1);
-                    x = int.Parse(meta);
-                    skladiki.Text = "x = " + x.ToString();
-                }
-                else
-                {
-                    x = 0;
-                    isXSet = false;
-                    skladiki.Text = "x = ";
-                }
-            }
-            else
-            {
-                if (y.ToString().Length > 1)
-                {
-                    string meta = y.ToString().Remove(y.ToString().Length - 1);
-                    y = int.Parse(meta);
-                    skladiki.Text = "x = " + x.ToString() + "\ny = " + y.ToString();
-                }
-                else
-                {
-                    y = 0;
-                    isYSet = false;
-                    skladiki.Text = "x = " + x.ToString() + "\ny = ";
-                }
             }
         }
 
@@ -180,6 +146,7 @@ namespace projek
                 ResetVars();
             }
         }
+        
         private void log_Click(object sender, RoutedEventArgs e)
         {
             znak = 'L';
@@ -199,7 +166,41 @@ namespace projek
 
         private void delete_click(object sender, RoutedEventArgs e)
         {
-            delete();
+            Delete();
+        }
+        
+        private void Delete()
+        {
+            if (!setB)
+            {
+                if (x.ToString().Length > 1)
+                {
+                    string meta = x.ToString().Remove(x.ToString().Length - 1);
+                    x = int.Parse(meta);
+                    skladiki.Text = "x = " + x.ToString();
+                }
+                else
+                {
+                    x = 0;
+                    isXSet = false;
+                    skladiki.Text = "x = ";
+                }
+            }
+            else
+            {
+                if (y.ToString().Length > 1)
+                {
+                    string meta = y.ToString().Remove(y.ToString().Length - 1);
+                    y = int.Parse(meta);
+                    skladiki.Text = "x = " + x.ToString() + "\ny = " + y.ToString();
+                }
+                else
+                {
+                    y = 0;
+                    isYSet = false;
+                    skladiki.Text = "x = " + x.ToString() + "\ny = ";
+                }
+            }
         }
 
         private void pot_Click(object sender, RoutedEventArgs e)
