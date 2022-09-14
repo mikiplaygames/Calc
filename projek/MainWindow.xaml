@@ -13,7 +13,7 @@
             <ColumnDefinition></ColumnDefinition>
             <ColumnDefinition></ColumnDefinition>
         </Grid.ColumnDefinitions>
-        
+
         <Grid.RowDefinitions>
             <RowDefinition></RowDefinition>
             <RowDefinition></RowDefinition>
@@ -32,16 +32,16 @@
         <Button x:Name="button8" Grid.Column="3" Grid.Row="1" Content="8"  Click="button8_Click" FontSize="30"/>
         <Button x:Name="button9" Grid.Column="0" Grid.Row="2" Content="9"  Click="button9_Click" FontSize="30"/>
         <Button x:Name="button0" Grid.Column="0" Grid.Row="3" Content="0"  Click="button0_Click" FontSize="30"/>
-        <Button x:Name="changebt" Grid.Column="3" Grid.Row="4" Content="A/B"  Click="change" FontSize="30"/>
         <Button x:Name="log" Grid.Column="1" Grid.Row="3" Content="log(x)" Click="log_Click" FontSize="30"/>
         <Button x:Name="pot" Grid.Column="2" Grid.Row="3" Content="^" Click="pot_Click" FontSize="30"/>
         <Button x:Name="plus" Grid.Column="1" Grid.Row="2" Content="+" Click="plus_Click" FontSize="30"/>
         <Button x:Name="minus" Grid.Column="2" Grid.Row="2" Content="-" Click="minus_Click" FontSize="30"/>
         <Button x:Name="multiply" Grid.Column="3" Grid.Row="2" Content="*" Click="multiply_Click" FontSize="30"/>
         <Button x:Name="divide" Grid.Column="3" Grid.Row="3" Content="/" Click="divide_Click" FontSize="30"/>
+        <Button x:Name="changebt" Grid.Column="2" Grid.Row="5" Content="A/B"  Click="change" FontSize="30"/>
+        <Button x:Name="deletebt" Grid.Column="3" Grid.Row="5" Content="del" Click="delete_click" FontSize="30"/>
         <TextBox Grid.Row="4" TextWrapping="Wrap" Text="skladniki" FontSize="30" Name="skladiki" TextAlignment="Center" VerticalAlignment="Center"/>
-        <TextBox Grid.Column="1" Grid.Row="4" TextWrapping="Wrap" Text="znak" FontSize="30" Name="znak" TextAlignment="Center" VerticalAlignment="Center"/>
-        <TextBox Grid.Column="2" Grid.Row="4" TextWrapping="Wrap" Text="wynik" FontSize="30" Name="wyink" TextAlignment="Center" VerticalAlignment="Center"/>
+        <TextBox Grid.Column="1" Grid.Row="4" TextWrapping="Wrap" Text="wynik" FontSize="30" Name="wyink" TextAlignment="Center" VerticalAlignment="Center"/>
 
 
     </Grid>

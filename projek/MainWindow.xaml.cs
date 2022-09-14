@@ -1,17 +1,5 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows;
-using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
-using System.Windows.Shapes;
 
 namespace projek
 {
@@ -29,6 +17,7 @@ namespace projek
         bool isXSet = false;
         bool isYSet = false;
         bool setB = false;
+        char znak;
 
         private void button0_Click(object sender, RoutedEventArgs e)
         {
@@ -39,61 +28,102 @@ namespace projek
         {
             count(1);
         }
-
+        
         private void button2_Click(object sender, RoutedEventArgs e)
         {
             count(2);
         }
+        
         private void button3_Click(object sender, RoutedEventArgs e)
         {
             count(3);
         }
+        
         private void button4_Click(object sender, RoutedEventArgs e)
         {
             count(4);
         }
+        
         private void button5_Click(object sender, RoutedEventArgs e)
         {
             count(5);
         }
+
         private void button6_Click(object sender, RoutedEventArgs e)
         {
             count(6);
         }
+
         private void button7_Click(object sender, RoutedEventArgs e)
         {
             count(7);
         }
+        
         private void button8_Click(object sender, RoutedEventArgs e)
         {
             count(8);
         }
+        
         private void button9_Click(object sender, RoutedEventArgs e)
         {
             count(9);
         }
 
-        private void count(int numbr)
+        private void count(int number)
         {
             if (!setB)
             {
-                string meta = x.ToString() + x.ToString();
+                string meta = x.ToString() + number.ToString();
                 x = int.Parse(meta);
                 isXSet = true;
-                skladiki.Text = "x = " + x.ToString();
+                skladiki.Text = "x = " + x.ToString() + "\ny = " + y.ToString();
             }
             else
             {
-                string meta = y.ToString() + y.ToString();
+                string meta = y.ToString() + number.ToString();
                 y = int.Parse(meta);
                 isYSet = true;
-                skladiki.Text = skladiki.Text + "\ny = " + y.ToString();
+                skladiki.Text = "x = " + x.ToString() + "\ny = " + y.ToString();
+            }
+        }
+
+        private void delete()
+        {
+            if (!setB)
+            {
+                if (x.ToString().Length > 1)
+                {
+                    string meta = x.ToString().Remove(x.ToString().Length - 1);
+                    x = int.Parse(meta);
+                    skladiki.Text = "x = " + x.ToString();
+                }
+                else
+                {
+                    x = 0;
+                    isXSet = false;
+                    skladiki.Text = "x = ";
+                }
+            }
+            else
+            {
+                if (y.ToString().Length > 1)
+                {
+                    string meta = y.ToString().Remove(y.ToString().Length - 1);
+                    y = int.Parse(meta);
+                    skladiki.Text = "x = " + x.ToString() + "\ny = " + y.ToString();
+                }
+                else
+                {
+                    y = 0;
+                    isYSet = false;
+                    skladiki.Text = "x = " + x.ToString() + "\ny = ";
+                }
             }
         }
 
         private void plus_Click(object sender, RoutedEventArgs e)
         {
-            znak.Text = "+";
+            znak = '+';
             if (!isXSet || !isYSet)
             {
                 wyink.Text = "nie ma jednej wartosci";
@@ -102,15 +132,13 @@ namespace projek
             {
                 float ans = x + y;
                 wyink.Text = ans.ToString();
-                isXSet = false;
-                isYSet = false;
+                ResetVars();
             }
         }
 
         private void minus_Click(object sender, RoutedEventArgs e)
         {
-
-            znak.Text = "-";
+            znak = '-';
             if (!isXSet || !isYSet)
             {
                 wyink.Text = "nie ma jednej wartosci";
@@ -119,14 +147,13 @@ namespace projek
             {
                 float ans = x - y;
                 wyink.Text = ans.ToString();
-                isXSet = false;
-                isYSet = false;
+                ResetVars();
             }
         }
 
         private void multiply_Click(object sender, RoutedEventArgs e)
         {
-            znak.Text = "*";
+            znak = '*';
             if (!isXSet || !isYSet)
             {
                 wyink.Text = "nie ma jednej wartosci";
@@ -135,14 +162,13 @@ namespace projek
             {
                 float ans = x * y;
                 wyink.Text = ans.ToString();
-                isXSet = false;
-                isYSet = false;
+                ResetVars();
             }
         }
 
         private void divide_Click(object sender, RoutedEventArgs e)
         {
-            znak.Text = "/";
+            znak = '/';
             if (!isXSet || !isYSet)
             {
                 wyink.Text = "nie ma jednej wartosci";
@@ -151,27 +177,18 @@ namespace projek
             {
                 float ans = x / y;
                 wyink.Text = ans.ToString();
-                isXSet = false;
-                isYSet = false;
+                ResetVars();
             }
         }
         private void log_Click(object sender, RoutedEventArgs e)
         {
-            znak.Text = "log(x)";
-            if (!isXSet || !isYSet)
-            {
-                wyink.Text = "nie ma jednej wartosci";
-            }
-            else
-            {
-                double logX = Math.Log(x);
-                double logY = Math.Log(y);
-                double logXY = Math.Log(x,y);
-                double logYX = Math.Log(y,x);
-                wyink.Text = $"{logX.ToString()} + 'log z: {x}' \n{logY.ToString()} + 'log z: {y}' \n{logXY.ToString()} + 'log z: {x} stopnia {y}' \n{logYX.ToString()} + 'log z: {y} stopnia {x}' \n";
-                isXSet = false;
-                isYSet = false;
-            }
+            znak = 'L';
+            double logX = Math.Log(x);
+            double logY = Math.Log(y);
+            double logXY = Math.Log(x,y);
+            double logYX = Math.Log(y,x);
+            wyink.Text = $"{logX.ToString()} + 'log z: {x}' \n{logY.ToString()} + 'log z: {y}' \n{logXY.ToString()} + 'log z: {x} stopnia {y}' \n{logYX.ToString()} + 'log z: {y} stopnia {x}' \n";
+            ResetVars();
         }
 
         private void change(object sender, RoutedEventArgs e)
@@ -180,9 +197,14 @@ namespace projek
             changebt.Content = !setB ? "A" : "B";
         }
 
+        private void delete_click(object sender, RoutedEventArgs e)
+        {
+            delete();
+        }
+
         private void pot_Click(object sender, RoutedEventArgs e)
         {
-            znak.Text = "^";
+            znak = '^';
             if (!isXSet || !isYSet)
             {
                 wyink.Text = "nie ma jednej wartosci";
@@ -191,9 +213,17 @@ namespace projek
             {
                 double ans = Math.Pow(x,y);
                 wyink.Text = ans.ToString();
-                isXSet = false;
-                isYSet = false;
+                ResetVars();
             }
+        }
+
+        private void ResetVars()
+        {
+            skladiki.Text = "";
+            x = 0;
+            y = 0;
+            isXSet = false;
+            isYSet = false;
         }
     }
 }
